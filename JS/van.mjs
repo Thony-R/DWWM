@@ -5,8 +5,9 @@ import chalk from 'chalk';
 const rl = new createInterface({input,output});
 function calculVan(iDepart,flux_net,vr)
 {
-    let i = 0.04;
+    let i = 0.08;
     let sFn=0;
+    
     flux_net.forEach((element,index) => {sFn+=element*Math.pow((1+i),-(index+1))});
     let van = -iDepart+sFn+vr*Math.pow((1+i),-5);
     return van.toFixed(2);

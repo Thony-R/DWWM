@@ -1,0 +1,30 @@
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+body
+{   
+    margin:  10% 0%;
+    
+    background-color: #ebc59d;
+}
+input
+{
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.25);
+    border: solid;
+}
+div
+{
+    display: flex;
+    /* justify-content: start; */
+    top:30%;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+input:focus{
+    outline: none;
+}
