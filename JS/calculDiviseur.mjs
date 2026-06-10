@@ -8,7 +8,7 @@ function calcul(nb_entier)
     let diviseurs = [];
     for(let i=1;i<=essaie;i++)
     {
-        if(nb_entier%i ==0)
+        if(nb_entier%i ==0 && i!=1)
         {
             diviseurs.push(i);
             if((nb_entier/i) !=i)
