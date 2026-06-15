@@ -11,7 +11,8 @@ async function main()
         let rep =await rl.question('x\n> ');
         rep = rep.toLowerCase();
         test = rep.split(' ');
-    }while(!test.includes('c') && !test.includes('f'));
+        test[0] =parseFloat(test[0]);
+    }while(test[1]!='c' && test[1]!='f' || isNaN(test[0]));
 
     switch(test[1])
     {
