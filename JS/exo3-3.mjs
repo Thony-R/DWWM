@@ -11,11 +11,11 @@ async function main()
     let yourNb = parseInt(await rl.question('search number \n> '));
     if(tab.includes(yourNb))
     {
-        tab.forEach((Element,index) => {
+        tab.some((Element,index) => {
             if(Element==yourNb)
             {
                 console.log(Element+' est à l\'indice '+index);
-                break;            
+                return true;        
             }
             });
     }
