@@ -14,7 +14,8 @@ async function main()
         tab.forEach((Element,index) => {
             if(Element==yourNb)
             {
-                console.log(Element+' est à l\'indice '+index);               
+                console.log(Element+' est à l\'indice '+index);
+                break;            
             }
             });
     }
