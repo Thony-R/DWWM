@@ -71,6 +71,7 @@ async function recupLettre()
 async function main()
 {
     let mystWord = await wordPlayer();
+    console.clear();
     await check(mystWord);
     rl.close();
 }
