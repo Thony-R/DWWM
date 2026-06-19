@@ -1,2 +1,0 @@
-exercice + du tri par sélection d'un tableau indicé
-Exercice 3.4 : Tri d'un tableau Nous désignerons par a1, a2, ..., aN les éléments d'un tableau à trier par ordre croissant. On commence par chercher l'indice du plus petit des éléments, soit j cet indice. On permute alors les valeurs de a1 et aj . On cherche ensuite l'indice du plus petit des éléments a2, a3, ..., an et on permute avec a2, etc.
