@@ -4,10 +4,15 @@ import chalk from 'chalk';
 
 const rl = new createInterface(input,output);
 
-async function main() 
+async function recupMot()
 {
     let word = await rl.question(chalk.cyan('Entrer un mot\n> '));
     rl.close();
+
+    return word;
+}
+function check(word)
+{
     let x = word.length-1;
     let score = 0;
     for(let i=0;i<word.length;i++)
@@ -23,12 +28,16 @@ async function main()
     }
     if(score == word.length)
     {
-        console.log('c\'est un palindrome');
+        return chalk.green('c\'est un palindrome');
     }
     else
     {
-        console.log('non');
+        return chalk.red('non');
     }
-    
+}
+async function main() 
+{
+    let mot = await recupMot();
+    console.log(check(mot));    
 }
 main();

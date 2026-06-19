@@ -1,5 +1,2 @@
-Exercice 3.5 : Palindrome Un palindrome est une chaîne de caractères que l'on peut lire identiquement de droite à gauche, et gauche à droite. Par exemple: AA. 38783. LAVAL. LAVAL A ETE A LAVAL. ET LA MARINE VA VENIR A MALTE Soit une chaîne de caractères terminée par un point. Ecrivez l'algorithme d'un programme permettant d'affirmer si cette phrase est ou non un palindrome. Si la chaîne de caractères n'est composée que du caractère '.', le message 'LA CHAINE EST VIDE' sera affiché. Proposez un jeu d'essai prévoyant les 3 cas suivants : ▪ la phrase est vide ▪ la chaîne de caractères n'est pas un palindrome ▪ la chaîne de caractères est un palindrome
-
-
 exercice + du tri par sélection d'un tableau indicé
 Exercice 3.4 : Tri d'un tableau Nous désignerons par a1, a2, ..., aN les éléments d'un tableau à trier par ordre croissant. On commence par chercher l'indice du plus petit des éléments, soit j cet indice. On permute alors les valeurs de a1 et aj . On cherche ensuite l'indice du plus petit des éléments a2, a3, ..., an et on permute avec a2, etc.
