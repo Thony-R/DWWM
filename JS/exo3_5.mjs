@@ -7,6 +7,7 @@ const rl = new createInterface(input,output);
 async function recupMot()
 {
     let word = await rl.question(chalk.cyan('Entrer un mot\n> '));
+    word = word.toLowerCase().replaceAll(' ','');
     rl.close();
 
     return word;

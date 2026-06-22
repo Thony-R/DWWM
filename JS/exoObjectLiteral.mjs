@@ -18,7 +18,7 @@ async function main()
         CDA : 23,
         ISI : 4
     };
-    // new version plus simple
+    // new version plus simple ?
 
         formationsInfo = Object.fromEntries(Object.entries(formationsInfo).sort((a,b) => {return b[1]-a[1]}));
 
