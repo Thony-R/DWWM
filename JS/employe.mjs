@@ -2,7 +2,6 @@ import chalk from "chalk";
 import { table } from "node:console";
 import { ftruncate } from "node:fs";
 
- 
 function donne(json)
 {
     const tabmail = json.employee_name.toLowerCase().split(' ');
