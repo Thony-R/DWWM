@@ -28,7 +28,6 @@ async function main()
     const api = await fetch('https://arfp.github.io/tp/web/javascript2/03-employees/employees.json')
     .then(reponse => reponse.json());
     const tabJson = api.data;
-
     const tab = remplissage(tabJson);
     console.table(tab);
 }
