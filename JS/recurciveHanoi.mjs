@@ -2,12 +2,11 @@ import {createInterface} from 'node:readline/promises';
 import {stdin as input,stdout as output} from 'node:process';
 import chalk from 'chalk';
 
-var tabT =[];
-var p =2;
-var conteur=0;
+
+
 function move(pos,posvoulu,tableau)
 {
-
+    // depacement avec les regles d'hanoï
     if(tableau[pos[0]][pos[1]+1]!=undefined)
     {
         let position = [pos[0],pos[1]+1];
@@ -28,6 +27,7 @@ function move(pos,posvoulu,tableau)
 
 function tesOu(value,tab)
 {
+    // recherche de la position d'un element du tableau
     for(let i=0;i<tab.length;i++)
     {
         for(let j=0;j<tab[i].length;j++)
@@ -39,23 +39,38 @@ function tesOu(value,tab)
         }
     }
 }
-async function main()
+function init(nb)
 {
-    const rl = new createInterface(input,output);
-    let nbDisque = parseInt(await rl.question(chalk.cyan('Entrer un nombre de dique de la tour d\'hanoï\n> ')));
+    // rempli le tableau de depart avec les valeur souhaiter et à la position voulu de depart
     let tabF = [];
-    for (let i = nbDisque;i>0;i--)
+    let tabT =[];
+    for (let i = nb;i>0;i--)
     {
         tabT.push(i);
     }
     tabF.push(tabT);
     tabF.push([]);
     tabF.push([]);
-    console.table(tabF);
-    tabT=[];
+
+    return tabF;
+}
+async function main()
+{
+    // Initialisation 
+    const rl = new createInterface(input,output);
+    // Question pour recup un nombre
+    do {
+        const nbDisque = parseInt(await rl.question(chalk.cyan('Entrer un nombre de dique de la tour d\'hanoï\n> ')));
+    } while (isNaN(nbDisque));
+    // Initialisation de départ
+    const tabFinal = init(nbDisque);
+    // parametrage de lancement du programme
+    const tabT=[];
     tabT.push(0,0);
-    move(tabT,p,tabF);
-    console.table(tabF);
+    // Lancement du programme
+    move(tabT,2,tabFinal);
+    // Affichage final du tableau
+    console.table(tabFinal);
     rl.close();
 }
 main();
