@@ -12,6 +12,8 @@ function move(pos,posvoulu,tableau)
         let position = [pos[0],pos[1]+1];
         move(position,3-posvoulu-pos[0],tableau);
     }
+    console.clear();
+    // '\x1B[5;10H'
     console.table(tableau);
     let x = tableau[pos[0]][pos[1]];
     tableau[posvoulu].push(x);
@@ -60,7 +62,7 @@ async function main()
     const rl = new createInterface(input,output);
     // Question pour recup un nombre
     do {
-        const nbDisque = parseInt(await rl.question(chalk.cyan('Entrer un nombre de dique de la tour d\'hanoï\n> ')));
+        var nbDisque = parseInt(await rl.question(chalk.cyan('Entrer un nombre de dique de la tour d\'hanoï\n> ')));
     } while (isNaN(nbDisque));
     // Initialisation de départ
     const tabFinal = init(nbDisque);
