@@ -13,7 +13,6 @@ function move(pos,posvoulu,tableau)
         move(position,3-posvoulu-pos[0],tableau);
     }
     console.clear();
-    // '\x1B[5;10H'
     console.table(tableau);
     let x = tableau[pos[0]][pos[1]];
     tableau[posvoulu].push(x);
