@@ -17,13 +17,14 @@ h1
 section
 {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     margin-top: 50px;
 }
 #Cards
 {
     display: flex;
     flex-direction: column;
+    margin: 10px;
     background-color: #ffffff;
     width: 350px;
     height: 500px;
