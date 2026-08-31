@@ -6,28 +6,28 @@ body
 }
 header
 {
+    height: 100px;
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: #E64B3C;  
 }
 h1
 {
     color: #ffffff;
 }
-section
+.Cards
 {
     display: flex;
     justify-content: center;
     margin-top: 50px;
+    margin-inline: 15%;
 }
 #Cards
 {
-    display: flex;
-    flex-direction: column;
     margin: 10px;
     background-color: #ffffff;
-    width: 350px;
-    height: 500px;
+    max-width: 350px;
 }
 h2
 {
@@ -36,4 +36,8 @@ h2
 div
 {
     padding: 20px;
+}
+img
+{
+    width: 100%;
 }
