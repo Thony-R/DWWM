@@ -1,0 +1,18 @@
+body
+{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    background-color: #0F4D8F;
+}
+h1
+{
+    color: #ffffff;
+}
+img
+{
+    border: 5px solid #ffffff;
+    border-radius: 25px;
+    padding: 20px;
+}
