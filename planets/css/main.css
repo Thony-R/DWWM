@@ -1,0 +1,21 @@
+body
+{
+    background-image: url("../img/css-16-bg.webp");
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    max-height:100vh ;
+}
+
+#img1
+{
+    width: 12.5%;
+}
+#img2
+{
+    width: 25%;
+}
+#img3
+{
+    width: min(2500px, 50%);
+}
