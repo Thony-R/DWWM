@@ -1,0 +1,61 @@
+body,header
+{
+    display: grid;
+    gap: 5px;
+}
+
+header
+{
+    
+    grid-template-columns: 1fr 15%;
+    grid-area: header;
+}
+
+.principal
+{
+    display: flex;
+    /* flex-wrap: wrap;
+    justify-content: end; */
+    padding-right: 20px;
+    gap: 5px;
+    height: 100%;
+}
+
+h1, aside, nav, .principal, footer
+{
+    margin: 0%;
+    background-color: #BBCCFF;
+}
+
+section
+{
+    background-color: #ffffff;
+    height: 250px;
+}
+
+body
+{
+    grid-template-rows: 80px 1fr 80px;
+    grid-template-areas:
+        "header header"
+        "nav main"
+        "nav footer";
+    height: 100vh;
+    margin: 0;
+}
+.principal h2{
+    width: 100%;
+}
+nav
+{
+    grid-area: nav;
+}
+
+main 
+{
+    grid-area: main;
+}
+footer
+{
+    grid-area: footer;
+}
