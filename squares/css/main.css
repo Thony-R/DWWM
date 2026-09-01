@@ -1,0 +1,36 @@
+div
+{
+    height: 50px;
+    width: 50px;
+    
+}
+main
+{   width: 450px;
+    height: 450px;
+
+    display: grid;
+    grid-template-columns: repeat(9,50px);
+    grid-template-rows: repeat(9,50px);
+
+}
+body
+{
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+}
+.white
+{
+    background-color: white;
+}
+.red
+{
+    background-color: red;
+}
+.black
+{
+    background-color: black;
+}
