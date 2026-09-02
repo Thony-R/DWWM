@@ -1,0 +1,33 @@
+body
+{
+    margin :0;
+    max-height: 100vh;
+    background-color:#5C94FC; 
+    border: 3px solid;
+    display: flex;
+    flex-direction: column;
+}
+div
+{
+    border: 1px solid;
+    height: 25vh;
+}
+.one
+{
+    width: 25%;
+    background-color: #4976C9 ;
+}
+.deux
+{
+    width: 50%;
+    background-color:  #375897;
+}
+.trois
+{
+    width: 75%;
+    background-color: #243B64;
+}
+.quatre
+{
+    background-color:  #121D32;
+}
