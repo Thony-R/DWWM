@@ -1,0 +1,40 @@
+.titre
+{
+    color: blue;
+}
+header
+{
+    display: flex;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+}
+img
+{
+    height: 50%; 
+}
+p
+{
+    max-width: 100%;
+    background-color: gray;
+    padding: 20px;
+}
+ul
+{
+    background-color: grey;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+span
+{
+    font-weight: bold;
+}
+thead
+{
+    background-color: grey;
+}
+table,td,th
+{
+    border: 1px solid blue;
+}
