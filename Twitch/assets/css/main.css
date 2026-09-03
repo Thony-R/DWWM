@@ -1,0 +1,66 @@
+body
+{
+    display: flex;
+    font-family: monospace;
+    flex-wrap: wrap;
+}
+header
+{
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+h1
+{
+    color: #008CBA;
+}
+.header
+{
+    font-style: italic;
+    border-radius: 5px;
+    padding: 0px 5px;
+    background-color: #D3D3D3;
+}
+td,th
+{
+    border: 1px solid;
+}
+table
+{
+    border: solid gray;
+}
+button
+{
+    margin: 10px 0px;
+    padding: 15px 25px;
+    border-radius: 10px;
+    color: white;
+    border: none;
+}
+#populaire
+{
+    background-color: #008CBA;
+}
+#regardé
+{
+    background-color: #4caf50;
+}
+#Croissance
+{
+    background-color: #555555;
+}
+table
+{
+    table-layout: fixed;
+
+    margin: 10px auto;
+}
+span
+{
+    background-color: #4caf50;
+}
+.pseudo
+{
+    margin-left: 10px;
+    background-color: white;
+}
