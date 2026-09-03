@@ -1,6 +1,5 @@
 body
 {
-    display: flex;
     font-family: monospace;
     flex-wrap: wrap;
 }
@@ -8,7 +7,7 @@ header
 {
     display: flex;
     align-items: baseline;
-    gap: 10px;
+    gap: 15px;
 }
 h1
 {
@@ -20,6 +19,8 @@ h1
     border-radius: 5px;
     padding: 0px 5px;
     background-color: #D3D3D3;
+    font-size: small;
+    color: black;
 }
 td,th
 {
@@ -36,6 +37,7 @@ button
     border-radius: 10px;
     color: white;
     border: none;
+    font-size: 17px;
 }
 #populaire
 {
@@ -49,18 +51,20 @@ button
 {
     background-color: #555555;
 }
-table
-{
-    table-layout: fixed;
 
-    margin: 10px auto;
-}
 span
 {
     background-color: #4caf50;
+    color: white;
+    padding: 0 6px;
 }
 .pseudo
 {
     margin-left: 10px;
-    background-color: white;
+    background-color: #008CBA;
+    color: white;
+}
+th
+{
+    background-color: #eee;
 }
