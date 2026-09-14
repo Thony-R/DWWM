@@ -1,0 +1,59 @@
+.box
+{
+    background: #333;
+    color: #fff;
+    padding: 20px;
+}
+*{
+    box-sizing: border-box;
+}
+
+body
+{
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    gap: 10px;
+    height: 100vh;
+}
+
+.logo
+{
+    grid-column: 1/2;
+}
+
+nav
+{
+    grid-column: 2/7;
+}
+
+.fil
+{
+    grid-column: 1/7;
+}
+
+.main  
+{
+    grid-column: 1/5;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.sidebar
+{
+    grid-column: 5/7;
+}
+
+.footer
+{
+    grid-column:1/7;
+}
+@media screen and (max-width:768px){
+    .logo,.menu,.main,.sidebar
+    {
+        grid-column:1/7;
+    }
+    
+}
