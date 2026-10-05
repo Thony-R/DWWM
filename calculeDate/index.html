@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/js/sricpt.js" defer></script>
+    <title>Calcule Année</title>
+</head>
+<body>
+    <main>
+        <h1>Ma date de naissance</h1>
+        <fieldset>
+            <legend>Date de naissance</legend>
+            <div>
+                <label for="dateNaissance">Date de naissance :</label>
+                <input type="date" id="dateNaissance">
+            </div>
+            <div>
+                <label for="heureNaissance">Heure de naissance</label>
+                <input type="time" id="heureNaissance">
+            </div>
+            <button id="calcule">Calculer</button>
+        </fieldset>
+        <hr>
+        <div class="affichageAge">
+            <p>Vous êtes né le <time datetime="" id="date"></time> à <time datetime="" id="heure"></time></p>
+            <p id="passTime"></p>
+        </div>
+    </main>
+</body>
+</html>

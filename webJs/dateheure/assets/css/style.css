@@ -1,0 +1,22 @@
+#dateday
+{
+    width: 50%;
+    margin: auto;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border-color: blue;
+}
+.fixe
+{
+    display: inline-block;
+    width: 100px;
+}
+input[type="date"],input[type="time"]
+{
+    display: inline-block;
+    width: 200px;
+}
+.wrap
+{
+    margin-bottom:1rem ;
+}

@@ -1,0 +1,107 @@
+.Competences__header
+{
+    height: 50px;
+    background-color: #FFF8F7;
+
+    color: black;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.24);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+.Competences__header span 
+{
+    display: inline-flex;
+    align-items: center;
+    font-weight: bold;
+    gap: 10px;
+}
+
+.Competences__X
+{
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    margin: 10px 20px;
+}
+.Competences__X h3
+{
+    margin: 10px 20px;
+}
+.Competences__X__X
+{
+    background-color: #FFF1EB;
+    width: 80%;
+    border-radius: 10px;
+    padding: 0 10px;
+    align-self: center;
+    margin: 10px 0;
+}
+.Competences__X__X .head
+{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.Competences__X__X .head h4
+{
+    margin: 10px 0;
+}
+.Competences__X__X .head span
+{
+    padding: 5px 10px;
+    border-radius: 50px;
+    margin: 0 0;
+    background-color: #FFDFAE;
+}
+.Competences__X__X  p
+{
+    margin: 0 0;
+}
+.maitrise
+{
+    -webkit-appearance: none;
+    appearance: none;
+    height: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.maitrise::-webkit-progress-bar
+{
+    background-color: #F6DED3;
+    border-radius: 25px;
+}
+.maitrise::-webkit-progress-value
+{
+    border-radius: 25px;
+    background-color: #D99B27;
+}
+
+.Competences span, .Competences h2
+{
+    margin: 0 20px;
+}
+.Competences .Competences--span
+{
+    padding: 5px 10px;
+    gap: 10px;
+    border-radius: 25px;
+    background-color: #FFDFAE;
+    display: flex;
+    width: fit-content;
+    margin: 10px 20px;
+}
+.Competences p
+{
+    margin: 10px 20px;
+    color: #504535;
+}
+.Competences
+{
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+ 
