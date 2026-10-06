@@ -1,0 +1,15 @@
+fieldset
+{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.affichageAge
+{
+    display: none;
+}
+p
+{
+    display: flex;
+    gap:0.8ch;
+}
