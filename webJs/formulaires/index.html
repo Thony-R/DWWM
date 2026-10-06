@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/js/script.js" defer></script>
+</head>
+<body>
+    <main>
+        <h1>Saisissez un prénom et un âge</h1>
+        <form action="">
+            <label for="name">Prénom : </label>
+            <input type="text" name="name" id="name" placeholder="Prénom">
+            <label for="age">Âge : </label>
+            <input type="number" name="age" id="age" min="0" value="0">
+            <button type="button" id="event">Valider</button>
+            <button type="reset">Vider</button>
+        </form>
+        <hr>
+        <p class="erreur">Compléter/corriger le formulaire.</p>
+        <section class="info">
+            <p>Bonjour <span id="txtname"></span>, votre âge est : <span id="txtage"></span>.</p>
+            <p>Vous êtes <span id="tr"></span>.</p>
+            <p id="retraite"></p>
+        </section>
+    </main>
+</body>
+</html>
