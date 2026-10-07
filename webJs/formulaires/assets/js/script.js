@@ -30,6 +30,10 @@ function calR(age)
         annee = age - 64;
         return `Vous êtes à la retraite depuis ${annee} année(s)`;
     }
+    else
+    {
+        return 'Vous prenez votre retraite cette année !';
+    }
 }
 btn.addEventListener("click",()=>{
     if(!namep.value.trim() || parseInt(age.value)<=0||isNaN(parseInt(age.value)))
