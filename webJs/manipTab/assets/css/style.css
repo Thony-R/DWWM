@@ -1,0 +1,21 @@
+.tabstyle, .tabstyle td,.tabstyle th
+{
+    border-collapse: collapse;
+    border:1px solid;
+}
+.tabstyle td, .tabstyle th
+{
+    padding:8px 10px; 
+}
+form
+{
+    border: 1px dashed;
+}
+h2
+{
+    margin-top: 0;
+}
+.email
+{
+    text-transform: lowercase;
+}
