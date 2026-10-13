@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.6rem;
+}
+
+h1, h2 {
+    text-align: center;
+    margin: 0;
+    padding: 1rem;
+}
+
+main {
+    width: 1200px;
+    max-width: 100%;
+}
+
+label, input, button {
+    display: inline-block;
+    width: 20rem;
+    margin-bottom: 1rem;
+}
+fieldset{
+
+   border-radius: 12px;
+   color: blue;
+   border: 2px solid blue;
+   width: 50%;
+   margin: auto; 
+}
+/* input[type="submit"]{
+    display: inline-block;
+    margin-top:20px; 
+} */
+
+#valider {
+    margin-top:30px; 
+    display:inline-block;
+    width: 100px;
+    margin-left: 200px;
+    cursor: pointer;
+
+   
+}
