@@ -1,7 +1,20 @@
+:root
+{
+    --bg : #536B78;
+    --titre-tab:#A9C8DD;
+    --bg-tab-button:#637081;
+    
+}
+body
+{
+    background-color: var(--bg);
+    color: #cee5f2;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 .tabstyle, .tabstyle td,.tabstyle th
 {
     border-collapse: collapse;
-    border:1px solid;
+    border:2px solid;
 }
 .tabstyle td, .tabstyle th
 {
@@ -9,13 +22,61 @@
 }
 form
 {
+    padding: 1rem;
     border: 1px dashed;
+}
+h1,#tab,#ajout
+{
+    color: var(--titre-tab);
+}
+#tab
+{
+    background-color: var(--bg-tab-button);
+    border-color: var(--titre-tab);
+}
+.btn
+{
+    width: 100%;
+    height: 100%;
+    border:none;
+    background-color: var(--bg-tab-button);
+    color: var(--titre-tab);
+    font-weight: bold;
+}
+#ajout
+{
+    background-color: var(--bg-tab-button);
+    border:2px solid var(--titre-tab);
+}
+h1
+{
+    margin-top: 0;
+    margin-bottom: 0.75rem;
 }
 h2
 {
     margin-top: 0;
+    font-weight: normal;
+    font-size: 1rem;
 }
 .email
 {
     text-transform: lowercase;
+}
+main
+{
+    border: 1px solid white;
+    padding: 1rem;
+}
+input[type= text]
+{
+    background-color: var(--bg-tab-button);
+    border: none;
+    border:2px solid var(--titre-tab);
+    color: white;
+}
+p
+{
+    margin-top: 1rem;
+    margin-bottom: 0;
 }

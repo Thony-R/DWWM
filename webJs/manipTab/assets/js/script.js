@@ -5,6 +5,7 @@ const table = document.getElementById("tab");
 const tab = people.map((e)=>e.split(" "));
 const infos = [];
 const liste = document.querySelector(".liste");
+const form = document.querySelector('#formulaire');
 let i = 0;
 let x=1;
 
@@ -176,6 +177,11 @@ ajout.addEventListener("click",()=>{
         }
         i++;
         ajoutListe(nom,prenom);
+        let confirmAjout =document.createElement("p");
+        confirmAjout.textContent = `${prenom} ${nom} ajouté !`;
+        form.appendChild(confirmAjout);
+        document.querySelector("#prenom").value = "";
+        document.querySelector("#nom").value = "";
     }
 
 })
