@@ -1,0 +1,51 @@
+*
+{
+    box-sizing: border-box;
+}
+body
+{
+    margin-right:20% ;
+    border: 2px solid green;
+    padding: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1
+{
+    margin: 0;
+    color: green;
+}
+table
+{
+    margin-top: 1.5rem;
+}
+td,th
+{
+    background-color: aqua;
+    padding: 5px 10px;
+}
+form
+{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+label
+{
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+}
+label:last-child
+{
+    margin-left: 175px;
+}
+input
+{
+    width: 175px;
+}
+input,button
+{
+    padding: 5px 10px;
+    background-color: aqua;
+    border: none;
+}

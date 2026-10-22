@@ -1,5 +1,3 @@
-
-
 const people = ["Mike Dev", "John Makenzie", "Léa Grande"];
 const table = document.getElementById("tab");
 const tab = people.map((e)=>e.split(" "));

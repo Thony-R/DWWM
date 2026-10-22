@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation Objet</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <script src="./assets/js/main.js" type="module"></script>
+</head>
+<body>
+    <h1>JS Approche Objet</h1>
+    <main>
+        <h2>Ajouter un article</h2>
+        <form id="formulaire">
+            <div>
+                <label for="nom">Nom de l'article</label>
+                <input id="nom" type="text" pattern="^[a-zA-Z]{2,}$" title="Le nom doit comporter 2 lettres au minimum !!!" >
+            </div>
+            <div>
+                <label for="prix">Prix Hors taxes</label>
+                <input id="prix" type="number" step="0.01" min="0.10" max="99999.99">
+            </div>
+            <div>
+                <label for="tva">TVA</label>
+                <select id="tva">
+                    <option value="20">20%</option>
+                    <option value="10">10%</option>
+                    <option value="5.5">5.5%</option>
+                    <option value="2.1">2.1%</option>
+                </select>
+            </div>
+            <div>
+                <button type="submit" id="valider">Ajouter l'article</button>
+            </div>
+        </form>
+        <hr>
+        <section>
+            <!-- les articles ajoutés apparaitront ici-->
+             <ul id="articles">
+
+             </ul>
+        </section>
+    </main>
+</body>
+</html>
