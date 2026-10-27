@@ -1,12 +1,10 @@
-const tabInfo=["id","name","level","description","power","attack","armor","damage","mitigation","played","victory","defeat","draw"];
-async function api()
-{
+const tabInfo = ["id", "name", "level", "description", "power", "attack", "armor", "damage", "mitigation", "played", "victory", "defeat", "draw"];
+async function api() {
     try {
-        const reponse= await fetch("https://arfp.github.io/tp/web/javascript/03-cardgame/cardgame.json");
-        if(!reponse.ok) throw new Error("impossible de recup les données");
+        const reponse = await fetch("https://arfp.github.io/tp/web/javascript/03-cardgame/cardgame.json");
+        if (!reponse.ok) throw new Error("impossible de recup les données");
         return await reponse.json();
-    } catch (error)
-    {
+    } catch (error) {
         console.log(error.message);
     }
 }
@@ -15,16 +13,13 @@ async function api()
  * @param {*} _elementTable 
  * @param {*} _fichierJson 
  */
-function remplirElementTab(_elementTable,_fichierJson)
-{
-    for(const element of _fichierJson)
-    {
-        const row = ajoutligne(_elementTable,_fichierJson,false);
+function remplirElementTab(_elementTable, _fichierJson) {
+    for (const element of _fichierJson) {
+        const row = ajoutligne(_elementTable, _fichierJson, false);
 
         const cells = row.childNodes;
-        for (const key in element) 
-        {    
-            cells[tabInfo.indexOf(key)].textContent =element[key];   
+        for (const key in element) {
+            cells[tabInfo.indexOf(key)].textContent = element[key];
         }
     }
 }
@@ -33,12 +28,10 @@ function remplirElementTab(_elementTable,_fichierJson)
  * @param {*} _elementDom 
  * @param {*} _fichierJson 
  */
-function remplirTabH(_elementDom,_fichierJson)
-{
-    const row = ajoutligne(_elementDom,_fichierJson,true);
+function remplirTabH(_elementDom, _fichierJson) {
+    const row = ajoutligne(_elementDom, _fichierJson, true);
     const cells = row.childNodes;
-    for(let i=0;i<tabInfo.length;i++)
-    {
+    for (let i = 0; i < tabInfo.length; i++) {
         cells[i].textContent = tabInfo[i];
     }
 }
@@ -49,35 +42,35 @@ function remplirTabH(_elementDom,_fichierJson)
  * @param {*} _boolean 
  * @returns 
  */
-function ajoutligne(_elementDom, _fichierJson,_boolean)
-{
+function ajoutligne(_elementDom, _fichierJson, _boolean) {
     const row = _elementDom.insertRow();
-    if(!_boolean)
-    {
-        for (const key in _fichierJson[0]) 
-        {
-            row.insertCell();   
+    if (!_boolean) {
+        for (const key in _fichierJson[0]) {
+            row.insertCell();
         }
     }
-    else
-    {
-        for (const key in _fichierJson[0]) 
-        {
+    else {
+        for (const key in _fichierJson[0]) {
             const cellH = document.createElement("th");
-            row.appendChild(cellH); 
+            row.appendChild(cellH);
         }
     }
     return row;
 }
-async function main()
-{   
+async function main() {
 
-    const elementTabH= document.querySelector("#tableauHead");
-    const elementTabB= document.querySelector("#tableauBody");
+    const elementTabH = document.querySelector("#tableauHead");
+    const elementTabB = document.querySelector("#tableauBody");
     const tabJson = await api();
 
-    console.table(tabJson);
-    remplirTabH(elementTabH,tabJson);
-    remplirElementTab(elementTabB,tabJson);
+    remplirTabH(elementTabH, tabJson);
+    remplirElementTab(elementTabB, tabJson);
+    const moreplayed = tabJson.sort((a,b)=>b.played - a.played)
+    const ratio = tabJson.sort((a,b)=> {(b.victory/b.defeat) - (a.victory/a.defeat)});
+    console.log(`nom : ${moreplayed[0].name}\nvictoire : ${moreplayed[0].victory}`)
+    console.log(`nom : ${ratio[0].name}\nparties jouées : ${ratio[0].played}\nvictoire : ${ratio[0].victory}`);
+   
+    
+
 }
 main();
