@@ -30,11 +30,16 @@ function searchinput(donné)
 }
 async function createCards(ville)
 {
-    const article = document.getElementById("resultVille");
+    const article = document.querySelector(".image");
+    const contenus = document.querySelector(".content");
     const imgObjet = await fetch(`https://fr.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&prop=pageimages|pageterms&piprop=original&titles=${ville.nomCommune}&origin=*`).then(reponse=> reponse.json());
     const url = imgObjet.query.pages[0].original.source;
     article.style.backgroundImage = "url('"+url+"')";
     article.style.backgroundSize = "cover";
+    const v= document.createElement("h2");
+    v.textContent = ville.nomCommune + " "+ ville.codePostal +"\n"+ ville.codeCommune;
+    contenus.appendChild(v);
+ 
 }
 async function main()
 {
