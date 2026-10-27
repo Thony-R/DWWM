@@ -20,7 +20,7 @@ function searchinput(donné)
     const tabSaisi = saisi.value.split(",");
     for (const element of donné) 
     {
-        if(element.codePostal === tabSaisi[0] && element.nomCommune)
+        if(element.codePostal === tabSaisi[0] && element.nomCommune === tabSaisi[1])
         {
             return element;
         }
@@ -32,8 +32,10 @@ async function createCards(ville)
 {
     const article = document.querySelector(".image");
     const contenus = document.querySelector(".content");
-    const imgObjet = await fetch(`https://fr.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&prop=pageimages|pageterms&piprop=original&titles=${ville.nomCommune}&origin=*`).then(reponse=> reponse.json());
-    const url = imgObjet.query.pages[0].original.source;
+
+    const imgObjet = (await fetch(`https://fr.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&prop=pageimages|pageterms&piprop=original&titles=${ville.libelleAcheminement.toLowerCase()}&origin=*`).then(reponse=> reponse.json())).query.pages[0].original ?? (await fetch(`https://fr.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&prop=pageimages|pageterms&piprop=original&titles=${ville.nomCommune}&origin=*`).then(reponse=> reponse.json())).query.pages[0].original;
+    console.log(imgObjet)
+    const url = imgObjet.source;
     article.style.backgroundImage = "url('"+url+"')";
     article.style.backgroundSize = "cover";
     const v= document.createElement("h2");
