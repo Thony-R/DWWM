@@ -1,3 +1,3 @@
-webJs/eval/node_modules
-webJs/eval/package-lock.json
-webJs/eval/package.json
+node_modules/
+package-lock.json
+package.json
