@@ -1,0 +1,78 @@
+:root
+{
+    --color1: #30343F;
+    --color2: #FAFAFF;
+    --color3: #E4D9FF;
+    --color4: #374479;
+    --color5: #6E7799;
+    --color6: #C490D1;
+}
+*
+{
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+body
+{
+    background-color: var(--color1);
+    border: 1px solid var(--color2);
+    padding: 1rem;
+    width: 80%;
+    h1
+    {
+        margin: 0;
+        color: var(--color3);
+    }
+    .formulaire
+    {
+        border: 1px dashed var(--color4);
+        color: var(--color2);
+        display: flex;
+        flex-direction: column;
+        padding: 5px 1rem;
+        gap: 1.2rem;
+        p
+        {
+            margin: 0;
+        }
+        label
+        {
+            display: flex;
+            width: 25%;
+            justify-content: space-between;
+            input
+            {
+                width: 50%;
+                border: 2px solid var(--color5);
+                background-color: var(--color4);
+                color: var(--color2);
+            }
+        }
+        #send
+        {
+            margin-left: 10px;
+            width: fit-content;
+            border: 2px solid var(--color5);
+            background-color: var(--color4);
+            color: var(--color2);
+            padding: 5px 1rem;
+        }
+    }
+    #tableaux
+    {
+        margin-top: 3rem;
+        background-color: var(--color4);
+        color: var(--color2);
+        border: 1px solid var(--color2);
+        border-collapse: collapse;
+        th,td
+        {
+            border: 1px solid var(--color2);
+            padding: 0.75rem;
+        }
+    }
+    #liste
+    {
+        color: var(--color2);
+    }
+}
