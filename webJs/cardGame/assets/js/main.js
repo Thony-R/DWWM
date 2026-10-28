@@ -65,8 +65,8 @@ async function main() {
 
     remplirTabH(elementTabH, tabJson);
     remplirElementTab(elementTabB, tabJson);
-    const moreplayed = tabJson.sort((a,b)=>b.played - a.played)
-    const ratio = tabJson.sort((a,b)=> {(b.victory/b.defeat) - (a.victory/a.defeat)});
+    const moreplayed = [...tabJson].sort((a,b)=>b.played - a.played)
+    const ratio = [...tabJson].sort((a,b)=> (b.victory/(b.victory+b.defeat)) - (a.victory/(a.victory+a.defeat)));
     console.log(`nom : ${moreplayed[0].name}\nvictoire : ${moreplayed[0].victory}`)
     console.log(`nom : ${ratio[0].name}\nparties jouées : ${ratio[0].played}\nvictoire : ${ratio[0].victory}`);
    
