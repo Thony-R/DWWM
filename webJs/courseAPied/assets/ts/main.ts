@@ -1,9 +1,12 @@
+//  Déclaration des types
 type dataJson = {nom : string; pays : string; temps : number};
 type data = {nom :string;prenom:string;pays:string;temps : number};
 type pays = {pays : string;bool:boolean};
 
-// Formatage du json
+//  =======================================================================
+
 /**
+ * Formatage du json
  * @param _json 
  * @returns 
  */
@@ -17,8 +20,9 @@ function formatageJson(_json:dataJson[]):data[]
             prenom : tabName[1]
     }});
 }
-// Trie de la donnés
+//  =======================================================================
 /**
+ * Trie de la donnés
  * @param _data 
  * @returns 
  */
@@ -27,8 +31,9 @@ function triedata(_data:data[]):data[]
     const trieJson : data[] = _data.map(e => e).sort((a,b)=> a.temps-b.temps); 
     return trieJson;
 }
-// trie des pays par ordre alphabetique
+//  =======================================================================
 /**
+ * Trie des pays par ordre alphabetique
  * @param _tab 
  * @returns 
  */
@@ -37,84 +42,109 @@ function triePays(_tab:pays[]):pays[]
     const tab : pays[] = [..._tab].sort((a,b)=> a.pays.localeCompare(b.pays)) 
     return tab;
 }
-// Remplissage de la div avec le nombre de participants && le gagnant
+//  =======================================================================
 /**
+ * Remplissage de la div avec le nombre de participants && le gagnant
  * @param _json 
  * @param _ElementDom 
  */
 function infoCourse(_data:data[],_ElementDom:HTMLDivElement):void
 {
+    // peut être comment
     const participants : HTMLSpanElement = document.createElement("span");
-    participants.textContent = _data.length > 1 ?`${_data.length} participants`:`${_data.length} participant`;
-    _ElementDom.appendChild(participants);
     const gagnant : HTMLSpanElement = document.createElement("span");
     const trieJson : data[] = triedata(_data);
+    participants.textContent = _data.length > 1 ?`${_data.length} participants`:`${_data.length} participant`;
+    _ElementDom.appendChild(participants);
     gagnant.textContent = `Gagnant : ${trieJson[0].prenom} ${trieJson[0].nom}`;
     _ElementDom.appendChild(gagnant);
 
 }
-// Ajout Thead && Remplissage
+//  =======================================================================
 /**
+ * Remplissage du Thead
  * @param _ElementDom 
  * @param _tabTitre 
  */
-function ajoutThead(_ElementDom:HTMLTableElement,_tabTitre:string[]):void
+function ajoutThead(_ElementDom:HTMLTableSectionElement,_tabTitre:string[]):void
 {
-    const thead : HTMLTableSectionElement = _ElementDom.createTHead();
-    const row : HTMLTableRowElement = nouvelLigne(thead,true,_tabTitre);
+    const row : HTMLTableRowElement = nouvelLigne(_ElementDom,true,_tabTitre);
     const cells = row.childNodes;
     for(let i = 0;i<_tabTitre.length;i++)
     {
         cells[i].textContent = _tabTitre[i];
     }
 }
-// Ajout du Tbody && Remplissage
+//  =======================================================================
 /**
+ * Remplissage Tbody
  * @param _data 
  * @param _ElementDom 
  * @param _tabTitre 
  */
-function ajoutTbody(_data:data[],_ElementDom:HTMLTableElement,_tabTitre:string[]):void
+function ajoutTbody(_data:data[],_ElementDom:HTMLTableSectionElement,_tabTitre:string[],_tabpays:pays[]):void
 {
-    const tbody : HTMLTableSectionElement = _ElementDom.createTBody();
     const trieJson : data[] = triedata(_data);
+    _ElementDom.replaceChildren();
     for(const element of trieJson)
     {
-        const row : HTMLTableRowElement = nouvelLigne(tbody,false,_tabTitre);
-        const cells = row.childNodes;
-        cells[0].textContent = element.pays;
-        cells[1].textContent = element.nom;
-        cells[2].textContent = element.prenom;
-        cells[3].textContent = convertion(element.temps);
+        if(_tabpays.every(e => e.bool === false))
+        {
+            // voir faire fonction
+            const row : HTMLTableRowElement = nouvelLigne(_ElementDom,false,_tabTitre);
+            const cells = row.childNodes;
+            cells[0].textContent = element.pays;
+            cells[1].textContent = element.nom;
+            cells[2].textContent = element.prenom;
+            cells[3].textContent = convertion(element.temps);
+        }
+        else
+        {
+            _tabpays.forEach(e=>
+            {
+                if(element.pays === e.pays && e.bool === true)
+                {
+                    const row : HTMLTableRowElement = nouvelLigne(_ElementDom,false,_tabTitre);
+                    const cells = row.childNodes;
+                    cells[0].textContent = element.pays;
+                    cells[1].textContent = element.nom;
+                    cells[2].textContent = element.prenom;
+                    cells[3].textContent = convertion(element.temps);
+                }
+            })
+        }
     }
 }
-// Affichage des filtre
+//  =======================================================================
 /**
+ * Affichage des filtre
  * @param _data 
  * @param _ElementDom 
+ * @param _ElementDomTbody 
+ * @param _tabTitre 
  */
-function filtre(_data:data[],_ElementDom:HTMLDivElement):void
+function filtre(_data:pays[],_ElementDom:HTMLDivElement,_ElementDomTbody:HTMLTableSectionElement,_tabTitre:string[]):void
 {
-    const tabPays : pays[] = triePays(pays(_data));
     const form : HTMLFormElement = document.createElement("form");
     const titreForm : HTMLHeadingElement = document.createElement("h2");
+    const div : HTMLDivElement = document.createElement("div");
+ // peut être comment
     titreForm.textContent = "Filtrer";
     form.appendChild(titreForm);
-    const div : HTMLDivElement = document.createElement("div");
     form.appendChild(div);
-    tabPays.forEach(e => {
+    _data.forEach(e => {
         const label = div.appendChild(document.createElement("label"));
         label.textContent = e.pays;
         const checkBox = document.createElement("input");
         checkBox.type="checkBox";
         checkBox.value = e.pays;
         label.appendChild(checkBox);
-        // checkBox.addEventListener("click",()=>ajoutTbody(_data,);console.log(checkBox.checked + " " +checkBox.value));
     })
     _ElementDom.after(form);
 }
-// Construction tableaux des pays
+//  =======================================================================
 /**
+ * Construction tableaux des pays
  * @param _data 
  * @returns 
  */
@@ -130,8 +160,9 @@ function pays(_data:data[]):pays[]
     }
     return x;
 }
-// Convertion du temps en seconde en minutes
+//  =======================================================================
 /**
+ * Convertion du temps en seconde en minutes
  * @param _nb 
  * @returns 
  */
@@ -142,8 +173,9 @@ function convertion(_nb:number):string
     const temp : string = seconds>10 ? `${minutes}min${seconds}s` : `${minutes}min0${seconds}s`;
     return temp;
 }
-// Création d'une ligne
+//  =======================================================================
 /**
+ * Création d'une ligne et ces cellules
  * @param _ElementDom 
  * @param _bool 
  * @param _tabTitre 
@@ -162,27 +194,63 @@ function nouvelLigne(_ElementDom:HTMLTableSectionElement,_bool:boolean,_tabTitre
     }
     return row;
 }
-// Recup du json
+//  ======================================================================
+/**
+ * Listener checkbox change valeur boolean et appel la fonction Tbody
+ * @param _btns 
+ * @param _ElementDom 
+ * @param _data 
+ * @param _tabTitre 
+ * @param _tabpays 
+ */ 
+function listener(_btns:NodeListOf<HTMLInputElement>,_ElementDom:HTMLTableSectionElement,_data:data[],_tabTitre:string[],_tabpays:pays[]):void
+{
+    _btns.forEach(btn=>
+    {
+        btn.addEventListener("click",()=>_tabpays.forEach(e=>
+        {
+            if(e.pays === btn.value)
+            {
+                e.bool = e.bool ? false :true;
+                ajoutTbody(_data,_ElementDom,_tabTitre,_tabpays);
+            }
+        }));
+    });
+}
+//  =======================================================================
+//  Recup du json
 async function recupJson(): Promise<data[]>
 {
     const info = await fetch("./assets/json/resultat10000metres.json").then(reponse => reponse.json());
     return info;
 }
-// Programme principal
+//  ========================================================================
+//  Programme principal
 async function main() 
 {
+//  Récupéraion des Element du Dom et Création 
     const chargementDom : string = "Erreur lors du chargement de l'élement du Dom"
     const divInfoDom = document.getElementById("infoCourse") as HTMLDivElement;
     if(!divInfoDom) throw new Error(chargementDom);
     const tabDom = document.getElementById("tableaux") as HTMLTableElement;
     if(!tabDom) throw new Error(chargementDom);
+    const thead : HTMLTableSectionElement = tabDom.createTHead();
+    const tbody : HTMLTableSectionElement = tabDom.createTBody();
+//  =========================================================================
+//  Déclaration des constant
     const tabJson : dataJson[] = await recupJson();
     const data : data[] = formatageJson(tabJson);
     const tabTitre : string[] = ["Pays","Nom","Prénom","Temps final"];
-
+    const tabPays : pays[] = triePays(pays(data));
+//  =========================================================================
+//  Appel des fonctions principales
     infoCourse(data,divInfoDom);
-    filtre(data,divInfoDom);
-    ajoutThead(tabDom,tabTitre);
-    ajoutTbody(data,tabDom,tabTitre);
+    filtre(tabPays,divInfoDom,tbody,tabTitre);
+    ajoutThead(thead,tabTitre);
+    ajoutTbody(data,tbody,tabTitre,tabPays);
+    const inputCheckBoxs = document.querySelectorAll<HTMLInputElement>('input[type="checkbox"]');
+    listener(inputCheckBoxs,tbody,data,tabTitre,tabPays);
+
 }
+
 main();
