@@ -28,7 +28,7 @@ function creatTbody(_fichierJson:student[],_ElementDom:HTMLTableSectionElement,t
         cells[0].textContent = tabsort[i].fullname.split(" ")[0];
         cells[1].textContent = tabsort[i].fullname.split(" ")[1];
         cells[2].textContent = String(tabsort[i].grade);
-        cells[3].textContent = tabsort[i].grade>_eliminatoire ? "Oui" : "Non";
+        cells[3].textContent = tabsort[i].grade>=_eliminatoire ? "Oui" : "Non";
     }
 }
 // Insertion d'une nouvel ligne
@@ -50,7 +50,7 @@ function nouvelLigne(_ElementDom:HTMLTableSectionElement,_tab:string[],bool:bool
 function verifName(_ElementDom:HTMLInputElement):boolean
 {
     const regexString = /^[a-zA-Z]{2,}$/;
-    const chaine : string[]|boolean = _ElementDom.value.split(" ").length === 2 ? _ElementDom.value.split(" ") : false;
+    const chaine : string[] | boolean = _ElementDom.value.split(" ").length === 2 ? _ElementDom.value.split(" ") : false;
     const bool : boolean = (chaine != false && regexString.test(chaine[0] && chaine[1])) ? true : false;
 
     return bool;

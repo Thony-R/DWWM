@@ -1,0 +1,83 @@
+*
+{
+    box-sizing: border-box;
+}
+:root
+{
+    --base-bg: #111111;
+    --base-txt: #CCCCCC;
+    --base-link: #E4D9FF;
+    --base-btn: #085E8F;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body
+{
+    background-color: var(--base-bg);
+    border: 1px solid var(--base-link);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    h1
+    {
+        color: var(--base-link);
+        margin: 0;
+    }
+    #infoCourse
+    {
+        display: flex;
+        gap: 3px;
+        span
+        {
+            background-color: var(--base-link);
+            color: var(--base-btn);
+            padding: 3px 7px;
+        }
+    }
+    form
+    {
+        margin:28px 0;
+        width: 75%;
+        h2
+        {
+            color: var(--base-link);
+            margin: 0;
+        }
+        div
+        {
+            margin-top: 0.75rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            label
+            {   
+                padding: 5px 10px;
+                width: 250px;
+                background-color: var(--base-btn);
+                color: var(--base-txt);
+                display: flex;
+                gap: 10px;
+                input[type="checkbox"]
+                {
+                    order: -1;
+                }
+            }
+        }
+    }
+    #tableaux
+    {
+        background-color: var(--base-btn);
+        color: var(--base-txt);
+        margin-top: 2rem;
+        border-radius: 10px;
+        width: 35%;
+        th
+        {
+            padding: 5px 2px;
+            text-align: center;
+        }
+        td
+        {
+            padding: 5px 5px;
+        }
+    }
+}
