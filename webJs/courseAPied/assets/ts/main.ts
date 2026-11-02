@@ -2,9 +2,7 @@
 type dataJson = {nom : string; pays : string; temps : number};
 type data = {nom :string;prenom:string;pays:string;temps : number};
 type pays = {pays : string;bool:boolean};
-
 //  =======================================================================
-
 /**
  * Formatage du json
  * @param _json 
@@ -50,15 +48,29 @@ function triePays(_tab:pays[]):pays[]
  */
 function infoCourse(_data:data[],_ElementDom:HTMLDivElement):void
 {
-    // peut être comment
     const participants : HTMLSpanElement = document.createElement("span");
     const gagnant : HTMLSpanElement = document.createElement("span");
+    const moyenneT : HTMLSpanElement = document.createElement("span");
     const trieJson : data[] = triedata(_data);
+
     participants.textContent = _data.length > 1 ?`${_data.length} participants`:`${_data.length} participant`;
     _ElementDom.appendChild(participants);
     gagnant.textContent = `Gagnant : ${trieJson[0].prenom} ${trieJson[0].nom}`;
     _ElementDom.appendChild(gagnant);
-
+    moyenneT.textContent = `Temps moyen : ${tMoyen(_data)}`;
+    _ElementDom.appendChild(moyenneT);
+}
+//  =======================================================================
+/**
+ * Calcul du temps moyen
+ * @param _data 
+ * @returns 
+ */
+function tMoyen(_data:data[]):string
+{
+    const temps :number= (_data.reduce((acc,val)=> acc + val.temps,0))/_data.length;
+    const final:string= convertion(temps);
+    return `${final}`;
 }
 //  =======================================================================
 /**
@@ -66,7 +78,7 @@ function infoCourse(_data:data[],_ElementDom:HTMLDivElement):void
  * @param _ElementDom 
  * @param _tabTitre 
  */
-function ajoutThead(_ElementDom:HTMLTableSectionElement,_tabTitre:string[]):void
+function rThead(_ElementDom:HTMLTableSectionElement,_tabTitre:string[]):void
 {
     const row : HTMLTableRowElement = nouvelLigne(_ElementDom,true,_tabTitre);
     const cells = row.childNodes;
@@ -82,21 +94,27 @@ function ajoutThead(_ElementDom:HTMLTableSectionElement,_tabTitre:string[]):void
  * @param _ElementDom 
  * @param _tabTitre 
  */
-function ajoutTbody(_data:data[],_ElementDom:HTMLTableSectionElement,_tabTitre:string[],_tabpays:pays[]):void
+function rTbody(_data:data[],_ElementDom:HTMLTableSectionElement,_tabTitre:string[],_tabpays:pays[]):void
 {
     const trieJson : data[] = triedata(_data);
+    const rLigne = (element:data):void=>
+    {
+        const row : HTMLTableRowElement = nouvelLigne(_ElementDom,false,_tabTitre);
+        const cells = row.childNodes;
+        cells[0].textContent = element.pays;
+        cells[1].textContent = element.nom;
+        cells[2].textContent = element.prenom;
+        cells[3].textContent = convertion(element.temps);
+        cells[4].textContent = `+${(element.temps-trieJson[0].temps)}s`;
+    };
     _ElementDom.replaceChildren();
+
     for(const element of trieJson)
     {
         if(_tabpays.every(e => e.bool === false))
         {
-            // voir faire fonction
-            const row : HTMLTableRowElement = nouvelLigne(_ElementDom,false,_tabTitre);
-            const cells = row.childNodes;
-            cells[0].textContent = element.pays;
-            cells[1].textContent = element.nom;
-            cells[2].textContent = element.prenom;
-            cells[3].textContent = convertion(element.temps);
+        
+            rLigne(element);
         }
         else
         {
@@ -104,12 +122,7 @@ function ajoutTbody(_data:data[],_ElementDom:HTMLTableSectionElement,_tabTitre:s
             {
                 if(element.pays === e.pays && e.bool === true)
                 {
-                    const row : HTMLTableRowElement = nouvelLigne(_ElementDom,false,_tabTitre);
-                    const cells = row.childNodes;
-                    cells[0].textContent = element.pays;
-                    cells[1].textContent = element.nom;
-                    cells[2].textContent = element.prenom;
-                    cells[3].textContent = convertion(element.temps);
+                    rLigne(element);
                 }
             })
         }
@@ -128,10 +141,11 @@ function filtre(_data:pays[],_ElementDom:HTMLDivElement,_ElementDomTbody:HTMLTab
     const form : HTMLFormElement = document.createElement("form");
     const titreForm : HTMLHeadingElement = document.createElement("h2");
     const div : HTMLDivElement = document.createElement("div");
- // peut être comment
+
     titreForm.textContent = "Filtrer";
     form.appendChild(titreForm);
     form.appendChild(div);
+
     _data.forEach(e => {
         const label = div.appendChild(document.createElement("label"));
         label.textContent = e.pays;
@@ -169,7 +183,7 @@ function pays(_data:data[]):pays[]
 function convertion(_nb:number):string
 {
     const minutes: number = Math.floor(_nb / 60);
-    const seconds : number = _nb - 60 * minutes;
+    const seconds : number =Math.floor(_nb - 60 * minutes);
     const temp : string = seconds>10 ? `${minutes}min${seconds}s` : `${minutes}min0${seconds}s`;
     return temp;
 }
@@ -212,7 +226,7 @@ function listener(_btns:NodeListOf<HTMLInputElement>,_ElementDom:HTMLTableSectio
             if(e.pays === btn.value)
             {
                 e.bool = e.bool ? false :true;
-                ajoutTbody(_data,_ElementDom,_tabTitre,_tabpays);
+                rTbody(_data,_ElementDom,_tabTitre,_tabpays);
             }
         }));
     });
@@ -240,17 +254,16 @@ async function main()
 //  Déclaration des constant
     const tabJson : dataJson[] = await recupJson();
     const data : data[] = formatageJson(tabJson);
-    const tabTitre : string[] = ["Pays","Nom","Prénom","Temps final"];
+    const tabTitre : string[] = ["Pays","Nom","Prénom","Temps final","Écart gagnant"];
     const tabPays : pays[] = triePays(pays(data));
 //  =========================================================================
 //  Appel des fonctions principales
     infoCourse(data,divInfoDom);
     filtre(tabPays,divInfoDom,tbody,tabTitre);
-    ajoutThead(thead,tabTitre);
-    ajoutTbody(data,tbody,tabTitre,tabPays);
+    rThead(thead,tabTitre);
+    rTbody(data,tbody,tabTitre,tabPays);
     const inputCheckBoxs = document.querySelectorAll<HTMLInputElement>('input[type="checkbox"]');
     listener(inputCheckBoxs,tbody,data,tabTitre,tabPays);
-
 }
 
 main();
