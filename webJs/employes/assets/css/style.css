@@ -6,6 +6,9 @@
 {
     font-family: Arial, Helvetica, sans-serif;
     --color1:rgb(104, 104, 104);
+    --color2:#3399DC;
+    --color3:#F14769;
+    --color4:#fff;
 }
 body
 {
@@ -28,15 +31,43 @@ body
             border: 2px solid var(--color1);
             padding: 10px;
         }
-        .salary
+        thead
         {
-            display: grid;
-            grid-template-columns: 70% 1fr;
-            justify-content: flex-start;
-            text-align: left;
-            button
+            .salary
             {
-                width: fit-content;
+                display: grid;
+                grid-template-columns: 70% 1fr;
+                justify-content: flex-start;
+                text-align: left;
+                button
+                {
+                    width: fit-content;
+                    cursor: pointer;
+                }
+            }
+        }
+        tbody
+        {
+            .action
+            {
+                button
+                {
+                    border: none;
+                    padding: 10px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+                button:first-child
+                {
+                    background-color: var(--color2);
+                    color: var(--color4);
+                    margin-right: 5px;
+                }
+                button:last-child
+                {
+                    background-color: var(--color3);
+                    color: var(--color4);
+                }
             }
         }
     }
