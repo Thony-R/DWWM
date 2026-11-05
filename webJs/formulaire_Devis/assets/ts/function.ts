@@ -96,9 +96,5 @@ function verifNum(_Chaine:string):boolean
  */
 function verifSelect(_Chaine:string,tabQ1:string[]):boolean
 {
-    if(tabQ1.includes(_Chaine))
-    {
-        return true;
-    }
-    return false;
+    return tabQ1.includes(_Chaine);
 }
