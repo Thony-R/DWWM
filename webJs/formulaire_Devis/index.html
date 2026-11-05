@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <script type="module" src="./assets/ts/main.ts"></script>
+    <title>Formulaire Devis</title>
+</head>
+<body>
+    <form action="#" method="get" class="formulaire">
+        <h1 class="formulaire__Titre">formulaire</h1>
+        <label for="firstName" class="formulaire__firstName"><input type="text" placeholder="Prénom" id="firstName"></label>
+        <label for="lastName" class="formulaire__lastName"><input type="text" placeholder="Nom" id="lastName" ></label>
+        <label for="email" class="formulaire__email"><input type="email" id="email" placeholder="Email" ></label>
+        <label for="nbPhone" class="formulaire__nbPhone"><input type="tel" placeholder="Tel." id="nbPhone" pattern="0[1-9][0-9]{8}" ></label>
+        <label for="nom" class="formulaire__nom"><input type="text" placeholder="Société / collectivité" id="nom" ></label>
+        <label for="message" class="formulaire__message"><textarea id="message" placeholder="Message" rows="4" ></textarea></label>
+        <label for="q1" class="formulaire__Q1">Comment avez-vous connu "laboite"  ?
+            <select id="q1" >
+                <option value="">-- merci de sélectionner une option --</option>
+            </select>
+        </label>
+        <label for="q2" class="formulaire__Q2">Vous êtes interessés par :
+            <select id="q2" >
+                <option value="">-- merci de sélectionner une option --</option>
+            </select>
+        </label>
+        <label for="rgpd" class="formulaire__rgpd">
+        <input type="checkbox" id="rgpd" >
+        En envoyant ce formulaire,vous autorisez "laboite" à utiliser vos données uniquement dans le cadre 
+        du traitement de votre demande. Elles ne seront en aucun cas utilisées à d'autres fins que celles de vous recontacter.
+        </label>
+        <button type="submit" id="send">ENVOYER</button>
+    </form>
+</body>
+</html>
