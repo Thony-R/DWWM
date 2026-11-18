@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script type="module" src="./assets/ts/main.ts"></script>
+    <title>Les céréales</title>
+</head>
+
+<body>
+    <header>
+        <h1>Cereals</h1>
+        <div class="filtre">
+            <label for="recherche" class="recherche"><span>Rechercher</span><input type="search" id="recherche" placeholder="Nom du céréale"></label>
+            <div class="filtre__general">
+                <span class="filtre__general__legend">Filtrer</span>
+                <div class="filtre__general__x">
+                    <span class="filtre__general__x__legend">Nutriscore</span>
+                    <label for="nA">A<input type="checkbox" id="nA"></label>
+                    <label for="nB">B<input type="checkbox" id="nB"></label>
+                    <label for="nC">C<input type="checkbox" id="nC"></label>
+                    <label for="nD">D<input type="checkbox" id="nD"></label>
+                    <label for="nE">E<input type="checkbox" id="nE"></label>
+                </div>
+                <div class="filtre__general__x">
+                    <span class="filtre__general__x__legend">Catégorie</span>
+                    <select name="categorie" id="categorie-select">
+                        <option value="0" selected>Tous</option>
+                        <option value="1">Sans sucre</option>
+                        <option value="2">Pauvre en Sel</option>
+                        <option value="3">Boost</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <table id="table"></table>
+    </main>
+</body>
+
+</html>

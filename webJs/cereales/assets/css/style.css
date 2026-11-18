@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap');
+*
+{
+    box-sizing: border-box;
+}
+:root
+{
+    font-family:"Comic Relief";
+}
+body
+{
+    margin: 0;
+    background-color: #111;
+    /* width: 100vh; */
+    header
+    {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 55% 1fr;
+        h1
+        {
+            color: yellowgreen;
+            text-align: center;
+        }
+        .filtre
+        {
+            display: flex;
+            
+            .recherche
+            {
+                padding: 0;
+                height: 85px;
+                position: relative;
+                span
+                {
+                    position: absolute;
+                    color: white;
+                    padding: 0 5px;
+                    background:linear-gradient(0deg,#333 50%,#111 50%);
+                    top: 5px;
+                    left: 10px;
+                }
+                input
+                {
+                    margin-top: 1rem;
+                    padding: 1rem;
+                    font-size: 1.3rem;
+                    border: 1px solid white;
+                    height: 100%;
+                    color: white;
+                    background-color: #333; 
+                }
+            }
+            .filtre__general
+            {
+                color: white;
+                position: relative;
+                display: flex;
+                height: 85px;
+                /* width: 500px; */
+                border:1px solid white;
+                margin: 16px 5px;
+                padding: 16px;
+                gap: 5px;
+                background-color: #333;
+                .filtre__general__legend
+                {
+                    position: absolute;
+                    background:linear-gradient(0deg,#333 50%,#111 50%);
+                    top: -12px;
+                    left: 10px;
+                }
+                .filtre__general__x
+                {
+                    position: relative;
+                    border: 1px solid white;
+                    height: 50px;
+                    width: fit-content;
+                    padding: 1rem;
+                    .filtre__general__x__legend
+                    {
+                        position: absolute;
+                        background-color: #333;
+                        padding: 0 5px;
+                        top: -12px;
+                        left: 10px;
+                    }
+                }
+            }
+        }
+
+    }
+    main
+    {
+        margin: 0 1rem;
+        #table
+        {
+            border-collapse: collapse;
+            width: 100%;
+            thead
+            {
+                background-color: #444;
+                color: yellowgreen;
+                th
+                {
+                    padding: 1rem;
+                    text-transform: uppercase;
+                }
+                th:nth-child(2)
+                {
+                    text-align: start;
+                }
+            }
+            tbody
+            {
+                color: white;
+                tr
+                {
+                    td
+                    {
+                        text-align: center;
+                        padding: 1rem;
+                    }
+                    .nS__A
+                    {
+                        background-color: darkgreen;
+                    }
+                    .nS__B
+                    {
+                        background-color: #009900cc;
+                    }
+                    .nS__C
+                    {
+                        background-color: #cccc00cc;
+                    }
+                    .nS__D
+                    {
+                        background-color: #cc6600cc;
+                    }
+                    .nS__E
+                    {
+                        background-color: #cc0000cc;
+                    }
+                    td:first-child
+                    {
+                        background-color: #333;
+                        color: yellowgreen;
+                    }
+                    td:nth-child(2)
+                    {
+                        text-align: start;
+                    }
+                    td:last-child
+                    {
+                        background-color: #222;
+                        color: #cc0000cc;
+                        text-shadow:    -1px -1px 0 #111,
+                                        1px -1px 0 #111,
+                                        -1px  1px 0 #111,
+                                        1px  1px 0 #111;
+                    }
+                }
+                tr:hover td:not(:nth-child(12))
+                {
+                    background-color: #664;
+                }
+                tr:hover td:first-child
+                {
+                    color: white;
+                }
+            }
+        }
+    }
+}
